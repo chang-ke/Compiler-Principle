@@ -1,0 +1,14 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "module": false,
+        "target": "ie > 9"
+      }
+    ],
+    "react",
+    "stage-0"
+  ],
+  "plugins": [ "transform-runtime", ["import", { "libraryName": "antd", "style": "css" }]]
+}
