@@ -1,0 +1,9 @@
+﻿  stdafx.cpp
+  Lexical.cpp
+  CompilersPrinciplesDll.cpp
+  正在生成代码...
+e:\node\compilers-principles\dll\compilersprinciplesdll\lexical.cpp(99): warning C4715: “Lexical::to_json_str”: 不是所有的控件路径都返回值
+  dllmain.cpp
+    正在创建库 E:\Node\Compilers-principles\dll\x64\Debug\CompilersPrinciplesDll.lib 和对象 E:\Node\Compilers-principles\dll\x64\Debug\CompilersPrinciplesDll.exp
+  CompilersPrinciplesDll.vcxproj -> E:\Node\Compilers-principles\dll\x64\Debug\CompilersPrinciplesDll.dll
+  CompilersPrinciplesDll.vcxproj -> E:\Node\Compilers-principles\dll\x64\Debug\CompilersPrinciplesDll.pdb (Full PDB)
