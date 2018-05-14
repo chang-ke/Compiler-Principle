@@ -6,7 +6,7 @@
 
 char* to_char_p(string str) {
 	int length = (int)str.length();
-	char *p = new char[length];
+	char *p = new char[length + 1];
 	for (int i = 0; i < length; ++i) {
 		p[i] = str[i];
 	}

@@ -26,3 +26,5 @@ char* to_char_p(string str) {
 	return p;
 }
 ```
+效果预览
+![](https://github.com/xuan45/Compiler-Principle/tree/master/images/FireShot1.png)

@@ -11,19 +11,19 @@ int main() {
         string str = "wodec";
         char c = 'd;
         @
-       /*
+       /*dddd*/
         for (b = 6e+3; b <+ 15; ++b) {
            int a=a+++-_b;
             if(b >cc 10){
                 long c = 0.99;
             }else{
-                const d = 3e9;
+                const d = 0x4tf;
             }
         }
         _#dd
         return 0;
     }
-*/`;
+`;
 let s = Dll.parse(codeStr);
 //console.log(s);
 let arr = JSON.parse(s);

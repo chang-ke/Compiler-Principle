@@ -10,24 +10,6 @@ const webpackConfigProd = {
   module: {
     rules: [
       {
-        test: /\.less$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                //localIdentName: "[local]__[hash:base64:5]",
-                minimize: true
-              }
-            },
-            {
-              loader: 'less-loader'
-            }
-          ]
-        })
-      },
-      {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',

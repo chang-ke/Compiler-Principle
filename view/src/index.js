@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Input, Button, Table } from 'antd';
-import 'antd/dist/antd.css';
+import { Input, Button, Table, Tag } from 'antd';
 const { TextArea } = Input;
 class Main extends React.PureComponent {
   state = {
@@ -51,6 +50,25 @@ class Main extends React.PureComponent {
         this.setState({ data });
       });
   };
+  renderTags = () => {
+    const colors = {
+      IDENTIFIER: 'cyan',
+      NUMBER: '	#EEC900',
+      KEY: '#8E388E',
+      COMMENT: '#87d068',
+      OPERATOR: '#108ee9',
+      ERROR: '#fD2626',
+      DELIMITER: '#8E8E38'
+    };
+    const { data } = this.state;
+    return data.map(item => {
+      return (
+        <Tag color={colors[item.type]} key={item.index}>
+          {item.word}
+        </Tag>
+      );
+    });
+  };
   render() {
     const columns = [
       {
@@ -85,34 +103,28 @@ class Main extends React.PureComponent {
     ];
     const { str, data } = this.state;
     return (
-      <div>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'flex-satrt' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', width: '46%', margin: '0 2%' }}>
+          <TextArea rows={20} autosize={{maxRows:20}} value={str} onChange={this.handleStr} />
+          <div
+            style={{
+              border: '1px #ccc solid',
+              borderRadius: '5px',
+              minHeight: '100px',
+              minWidth: '100%',
+              boxShadow: '0 0 3px #ccc'
+            }}
+          >
+            记号块：<br />
+            {this.renderTags()}
+          </div>
+        </div>
         <Table
           columns={columns}
           dataSource={data}
           rowKey={record => record.index}
-          style={{ position: 'fixed', right: '10%', width: '40%' }}
+          style={{ width: '46%', margin: '0 2%' }}
         />
-        <TextArea
-          rows={20}
-          style={{
-            position: 'fixed',
-            left: '10%',
-            width: '40%'
-          }}
-          value={str}
-          onChange={this.handleStr}
-        />{' '}
-        <br />{' '}
-        <Button
-          type="primary"
-          onClick={this.hanldePost}
-          style={{
-            marginTop: '420px',
-            marginLeft: '40%'
-          }}
-        >
-          分析
-        </Button>{' '}
       </div>
     );
   }

@@ -5,8 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   //devtool: "inline-eval-source-map",
   entry: {
-    main: path.join(__dirname, '../src/index.js'),
-    vendor: ['react', 'react-dom']
+    main: path.join(__dirname, '../src/index.js')
   },
   output: {
     path: path.join(__dirname, '../build'),
@@ -28,11 +27,6 @@ module.exports = {
   },
   plugins: [
     new webpack.HashedModuleIdsPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: Infinity,
-      filename: 'static/vendor.bundle.js'
-    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.join(__dirname, '../public/index.html')
