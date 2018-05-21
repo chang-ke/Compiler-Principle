@@ -1,11 +1,46 @@
 #ifndef LEXICAL_H
 #define LEXICAL_H
 
-class Key {
+class Identifier {
+private: 
+	vector<pair<string, pair<int, int>>> table;
+public: 
+	bool find(string id);
+	bool push(string id, int row, int col);
+};
 
+class Number {
+private: 
+	vector<pair<string, pair<int, int>>> table;
+public:
+	bool find(string id);
+	bool push(string id, int row, int col);
+};
+
+class Operator {
+private:
+	vector<pair<string, int>> table;
+public:
+	bool find(string op);
+	bool push(string op, int val);
 };
 
 class Lexical {
+private:
+	vector<string> instring;
+	string Operator[16] = { "+","-","*","/",">",">=","<","<=","=","==","!","!=","&&","||","%","~" };
+	string Delimitor[11] = { ",",";",")","(","[","]","{","}" };
+	// 关键字表
+	string Key[33] = {
+		"auto", "double", "int", "struct", "break", "else", "long",
+		"switch","case", "enum", "register", "typedef", "char",
+		"extern", "return", "union","const", "float", "short",
+		"unsigned", "continue", "for", "signed", "void","default",
+		"goto", "sizeof", "volatile", "do", "if", "while", "static",
+		"string"
+	};
+	Identifier id;
+	int row, col;
 public:
 	Lexical();
 	Lexical(string str);
@@ -17,21 +52,6 @@ public:
 	bool isDelimitor(char ch);
 	bool isSpcae(char ch);
 	string to_json_str(int type, string val);
-private:
-	vector<string> in;
-	//vector<pair<string, int>> optrs;
-	string Operator[18] = { "+","++","--","-","*","/",">",">=","<","<=","=","==","!","!=","&&","||","%","~" };
-	string Delimitor[11] = {",",";",")","(","[","]","{","}"};
-	string Key[33] = { // 关键字表
-		"auto", "double", "int", "struct", "break", "else", "long",
-		"switch","case", "enum", "register", "typedef", "char",
-		"extern", "return", "union","const", "float", "short",
-		"unsigned", "continue", "for", "signed", "void","default",
-		"goto", "sizeof", "volatile", "do", "if", "while", "static",
-		"string"
-	};
-	int index;
-	int row, col;
 };
 
 #endif LEXICAL_H// !LEXICAL_H
