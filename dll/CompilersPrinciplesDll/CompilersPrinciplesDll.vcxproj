@@ -150,6 +150,7 @@
   <ItemGroup>
     <ClInclude Include="CompilersPrinciplesDll.h" />
     <ClInclude Include="Lexical.h" />
+    <ClInclude Include="LL.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -170,6 +171,7 @@
       </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Lexical.cpp" />
+    <ClCompile Include="LL.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

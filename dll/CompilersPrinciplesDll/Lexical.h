@@ -1,28 +1,15 @@
 #ifndef LEXICAL_H
 #define LEXICAL_H
 
-class Identifier {
+class Symbol {
 private: 
-	vector<pair<string, pair<int, int>>> table;
+	map<string, pair<int, int>> table;
+	set<string> se;
 public: 
 	bool find(string id);
+	bool find_id(string id);
+	void push_id(string id);
 	bool push(string id, int row, int col);
-};
-
-class Number {
-private: 
-	vector<pair<string, pair<int, int>>> table;
-public:
-	bool find(string id);
-	bool push(string id, int row, int col);
-};
-
-class Operator {
-private:
-	vector<pair<string, int>> table;
-public:
-	bool find(string op);
-	bool push(string op, int val);
 };
 
 class Lexical {
@@ -39,7 +26,7 @@ private:
 		"goto", "sizeof", "volatile", "do", "if", "while", "static",
 		"string"
 	};
-	Identifier id;
+	Symbol sy;
 	int row, col;
 public:
 	Lexical();

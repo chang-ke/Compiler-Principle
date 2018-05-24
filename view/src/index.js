@@ -6,7 +6,7 @@ class Main extends React.PureComponent {
   state = {
     str: `int main() {
       auto c** = 6;
-      //这是注释
+      /*这是注释
       string str = "wodec";
       char c = 'd;
       @

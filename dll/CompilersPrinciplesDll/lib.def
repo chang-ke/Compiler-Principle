@@ -1,3 +1,4 @@
-LIBRARY 
-    EXPORTS
-        parse
+LIBRARY "pr"
+EXPORTS
+parse @ 1
+analys @ 2

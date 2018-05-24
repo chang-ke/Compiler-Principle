@@ -16,7 +16,7 @@ windows10 + vs2015 + nodejs-v8.9.3
 ```c++
 //char* 可直接赋值给string
 //string 转 char*,用来返回结果给nodejs
-char* to_char_p(string str) {
+char* to_char_pointer(string str) {
 	int length = (int)str.length();
 	char *p = new char[length + 1];
 	for (int i = 0; i < length; ++i) {

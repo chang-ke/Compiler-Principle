@@ -18,5 +18,3 @@ public:
 };
 
 extern COMPILERSPRINCIPLESDLL_API int nCompilersPrinciplesDll;
-
-COMPILERSPRINCIPLESDLL_API int fnCompilersPrinciplesDll(void);
