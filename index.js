@@ -10,7 +10,7 @@ let codeStr = fs
   .split('\r')
   .join('');
   let s = Dll.parse(codeStr);
-Dll.analys('E->T');
+Dll.analys('i+i*i#');
 //console.log(s);
 // let arr = JSON.parse(s);
 // arr.forEach((item, index) => {

@@ -9,7 +9,7 @@
 #include <iostream>
 #include <string>
 #include <ctype.h>
-#include <regex> 
+#include <stack> 
 #include <algorithm>
 #include <vector>
 #include <map>
@@ -23,6 +23,7 @@ using std::vector;
 using std::pair;
 using std::map;
 using std::set;
+using std::stack;
 #define WIN32_LEAN_AND_MEAN             // 从 Windows 头中排除极少使用的资料
 // Windows 头文件: 
 #include <windows.h>

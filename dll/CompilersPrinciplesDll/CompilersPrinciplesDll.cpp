@@ -26,10 +26,10 @@ COMPILERSPRINCIPLESDLL_API char* parse(char* str) {
 };
 
 COMPILERSPRINCIPLESDLL_API char* analys(char* str) {
-	char *p = NULL;
-	LL l;
-	l.run();
-	return p;
+	string s = str;
+	LL *l = new LL(s);
+	s = l->run();
+	return to_char_pointer(s);
 };
 
 
