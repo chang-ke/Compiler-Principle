@@ -4,7 +4,7 @@
 
 class Grammar {
 protected:
-	string gram[8] = { "E->TG","G->+TG|-TG","G->$","T->FS","S->*FS|/FS","S->$","F->(E)","F->i" };
+	string grammar[8] = { "E->TG","G->+TG","G->$","T->FS","S->*FS","S->$","F->(E)","F->i" };
 	map<char, set<char>> first;
 	map<char, set<char>> follow;
 public:

@@ -24,22 +24,16 @@ app.use(
 );
 app.use(json());
 app.use(logger());
-/*app.use(
+app.use(
   staticCache('./public/v1', {
     gzip: true,
     maxAge: 365 * 24 * 60 * 60
   })
-);*/
+);
 
 app.use(
   views(__dirname + '/views', {
     extension: 'pug'
-  })
-);
-
-app.use(
-  require('koa-static-cache')('./public/v1', {
-    gzip: true
   })
 );
 
@@ -67,11 +61,5 @@ app.use(index.routes(), index.allowedMethods());
 app.on('error', (err, ctx) => {
   console.error('server error', err, ctx);
 });
-
-function parseMime(url) {
-  let extName = path.extname(url);
-  extName = extName ? extName.slice(1) : 'unknown';
-  return mimes[extName];
-}
 
 module.exports = app;
