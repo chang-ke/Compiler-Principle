@@ -19,6 +19,7 @@ using std::cout;
 using std::endl;
 using std::string;
 using std::to_string;
+using std::reverse;
 using std::vector;
 using std::pair;
 using std::map;

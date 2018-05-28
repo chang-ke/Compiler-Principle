@@ -4,7 +4,7 @@
 
 class Grammar {
 protected:
-	string grammar[8] = { "E->TG","G->+TG","G->$","T->FS","S->*FS","S->$","F->(E)","F->i" };
+	string grammar[8] = { "E->TG","G->+TG|-TG","G->$","T->FS","S->*FS|/FS","S->$","F->(E)","F->i" };
 	map<char, set<char>> first;
 	map<char, set<char>> follow;
 public:
@@ -20,14 +20,15 @@ public:
 
 class LL :public Grammar {
 private:
-	map<char,map<char,string>> table;
+	map<char, map<char, string>> table;
 	Grammar g;
 	string text;
 public:
 	LL(string t);
 	string run();
-	void get_table(map<char, set<char>> first, map<char, set<char>> follow);
-	void set_table(char row, char col, string s);
+	void get_table(const map<char, set<char>> &first, map<char, set<char>> &follow);
+	void insert_table(char row, char col, string s);
+	string table_find(char A, char c);
 	void show();
 };
 

@@ -13,24 +13,16 @@ router.post("/", async (ctx, next) => {
   ctx.body = s
 });
 
-// router.post("/*", async (ctx, next) => {
-//   const data = await proxy({
-//     hostname: "cnodejs.org",
-//     https: true,
-//     req: ctx.req,
-//     ctx:ctx
-//   });
-//   ctx.body = data;
-// });
-
-// router.get("/api/v1/*", async (ctx, next) => {
-//   const data = await proxy({
-//     hostname: "cnodejs.org",
-//     https: true,
-//     req: ctx.req
-//   });
-//   ctx.body = data;
-// });
+router.post("/ll", async (ctx, next) => {
+  const ffi = require('../../node_modules/ffi');
+  const Dll = ffi.Library('../../dll/x64/Debug/CompilersPrinciplesDll.dll', {
+      'analys': ['string', ['string']
+      ]
+  })
+  let ss = ctx.request.body.str
+  let s = Dll.analys(ctx.request.body.str)
+  ctx.body = s
+});
 
 router.get("/*", async (ctx, next) => {
   ctx.type = "text/html";
