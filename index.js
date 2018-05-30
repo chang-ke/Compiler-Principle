@@ -10,7 +10,7 @@ let codeStr = fs
   .split('\r')
   .join('');
   let s = Dll.parse(codeStr);
-let result = Dll.analys('i+i*i#');
+let result = Dll.analys('i+i*i*(i+i)#');
 console.log(JSON.parse(result))
 //console.log(s);
 // let arr = JSON.parse(s);

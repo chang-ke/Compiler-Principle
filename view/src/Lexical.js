@@ -2,11 +2,13 @@ import React from 'react';
 import { Input, Button, Table, Tag } from 'antd';
 const { TextArea } = Input;
 
-export class Main extends React.PureComponent {
+export default class Lexical extends React.PureComponent {
   state = {
     str: `int main() {
       auto c** = 6;
       /*这是注释
+          2333
+      */
       string str = "wodec";
       char c = 'd;
       @
