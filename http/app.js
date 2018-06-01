@@ -41,7 +41,7 @@ app.use(
 app.use(async (ctx, next) => {
   const start = new Date();
 
-  ctx.set('Access-Control-Allow-Origin', 'http://localhost:8080');
+  ctx.set('Access-Control-Allow-Origin', '*');
   ctx.set('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
   //ctx.set('Access-Control-Allow-Credentials', true);
   try {
