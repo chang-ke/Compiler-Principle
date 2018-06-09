@@ -15,7 +15,7 @@ public:
 class Lexical {
 private:
 	vector<string> instring;
-	string Operator[16] = { "+","-","*","/",">",">=","<","<=","=","==","!","!=","&&","||","%","~" };
+	string Operator[14] = { "+","-","*","/",">","<","=","!","!=","&&","||","%","~","&" };
 	string Delimitor[11] = { ",",";",")","(","[","]","{","}" };
 	// ¹Ø¼ü×Ö±í
 	string Key[33] = {

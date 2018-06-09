@@ -49,22 +49,22 @@ export default class LL extends React.PureComponent {
       {
         title: 'stack',
         dataIndex: 'stack',
-        key: 'stack',
+        key: 'stack'
       },
       {
         title: 'input',
         dataIndex: 'input',
-        key: 'input',
+        key: 'input'
       },
       {
         title: 'prod',
         dataIndex: 'prod',
-        key: 'prod',
+        key: 'prod'
       },
       {
         title: 'action',
         dataIndex: 'action',
-        key: 'action',
+        key: 'action'
       }
     ];
     const column = [
@@ -114,7 +114,7 @@ export default class LL extends React.PureComponent {
     return (
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'flex-satrt' }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', width: '16%', margin: '0 1%' }}>
-          <TextArea rows={10} value={str} onChange={this.handleStr} />
+          <TextArea rows={10} autosize={{ minRows: 10 }} value={str} onChange={this.handleStr} />
           <Button type="primary" onClick={this.hanldePost}>
             分析
           </Button>

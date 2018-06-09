@@ -25,7 +25,7 @@ app.use(
 app.use(json());
 app.use(logger());
 app.use(
-  staticCache('./public/v1', {
+  staticCache('./public', {
     gzip: true,
     maxAge: 365 * 24 * 60 * 60
   })
