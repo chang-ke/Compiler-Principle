@@ -1,10 +1,11 @@
 ## Introduction
 
-编译原理课设
+编译原理实验
 
-核心代码采用c++实现，服务端代码使用koa2实现，前端可视化代码使用react实现
-
-js作为胶水层(`node-ffi`)将c++运行的结果转发给前端，数据格式使用json
+* 词法分析器和LL(1)文法核心代码均采用C++实现，服务端代码使用Koa2实现，前端可视化代码使用React实现
+  js作为胶水层(`node-ffi`)将c++运行的结果转发给前端，数据格式使用json
+* LR(1)文法我用的是JavaScript，原因是我做LL(1)文法的时候，要把预测分析表可视化出来，这样去拼接json字符串给nodejs太麻烦了
+于是我就用了JavaScript，便于可视化图表等，而且数据结构也比C++好用
 
 #### 环境：
 windows10 + vs2015 + nodejs-v8.9.3
@@ -27,4 +28,9 @@ char* to_char_pointer(string str) {
 }
 ```
 #### 效果预览
-![效果图](https://github.com/xuan45/Compiler-Principle/blob/master/images/FireShot1.png)
+* 词法分析
+![词法分析效果图](https://github.com/xuan45/Compiler-Principle/blob/master/images/FireShot1.png)
+* LL(1)
+![LL(1)效果图](https://github.com/xuan45/Compiler-Principle/blob/master/images/FireShot2.png)
+* LR(1)
+![LR(1)效果图](https://github.com/xuan45/Compiler-Principle/blob/master/images/demo.gif)

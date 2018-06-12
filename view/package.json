@@ -10,7 +10,8 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-router-dom": "^4.2.2",
-    "viz.js": "^2.0.0"
+    "viz.js": "^2.0.0",
+    "webpack-parallel-uglify-plugin": "^1.1.0"
   },
   "scripts": {
     "start": "webpack-dev-server --hot --inline --color --hot --config ./scripts/webpack.dev.js",

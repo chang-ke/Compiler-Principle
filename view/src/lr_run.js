@@ -1,4 +1,4 @@
-let Prods = ['S->E', 'E->E+T', 'F->i', 'E->T', 'T->T*F', 'T->F', 'F->(E)'];
+let Prods = ['S->E', 'E->E+T', 'E->T', 'T->T*F', 'T->F', 'F->(E)', 'F->i'];//['S->E','E->BB','B->aB','B->b']
 let EXTEND_PREFIX = 'S';
 let Items = getItem();
 let tableHeaders = getHeader();
@@ -6,12 +6,14 @@ let dotGraph = [];
 let C = getC(dotGraph);
 let ActionAndGotoTable = [];
 let digraph = 'digraph G {\n';
+
 Array.prototype.remove = function(item) {
   let index = this.indexOf(item);
   if (index > -1) {
     this.splice(index, 1);
   }
 };
+
 class Stack {
   constructor(..._arr) {
     this.arr = Array.isArray(_arr[0]) ? _arr[0] : _arr;
@@ -28,8 +30,8 @@ class Stack {
   get str() {
     return this.arr.join('');
   }
-  get all(){
-    return this.arr
+  get all() {
+    return this.arr;
   }
   get last() {
     return this.arr[this.arr.length - 1];
@@ -38,6 +40,7 @@ class Stack {
     return this.arr.length;
   }
 }
+
 function isEnd(c) {
   let start = [];
   Prods.forEach(prod => {
@@ -83,6 +86,8 @@ function getFirst(Prod) {
       if (prod[0] === c) {
         if (isEnd(prod[3])) {
           first.push(prod[3]);
+        } else if (prod[0] === prod[3]) {
+          continue;
         } else {
           c = prod[3];
           i = 0;
@@ -95,7 +100,7 @@ function getFirst(Prod) {
   return first;
 }
 
-// console.log('first:', getFirst('E->BB'));
+console.log('first:', getFirst('B'));
 
 function initTable() {
   for (const c of C) {
@@ -354,7 +359,7 @@ function getDescibe() {
   C.forEach((closure, index) => {
     let _closureDescribe = `I${index}[tooltip="I${index}: `;
     closure.forEach(item => {
-      _closureDescribe += `${item.prod}, ${item.search}\n`;
+      _closureDescribe += `${item.prod}  ${item.search}\n`;
     });
     closureDescribe += _closureDescribe + '"];\n';
   });
@@ -366,4 +371,5 @@ dotGraph.forEach(g => {
   digraph += digraph.indexOf(str) === -1 ? str : '';
 });
 digraph += getDescibe() + '}';
-export { ActionAndGotoTable, analys, digraph };
+
+export { ActionAndGotoTable, analys, digraph, tableHeaders };

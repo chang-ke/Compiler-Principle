@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActionAndGotoTable, analys, digraph } from './lr_run';
+import { ActionAndGotoTable, analys, digraph, tableHeaders } from './lr_run';
 import { Input, Button, Table, Tag } from 'antd';
 import Viz from 'viz.js';
 import { Module, render } from 'viz.js/full.render.js';
@@ -8,7 +8,7 @@ const { TextArea } = Input;
 
 export default class LL extends React.PureComponent {
   constructor() {
-    super()
+    super();
     let viz = new Viz({ Module, render });
     viz
       .renderSVGElement(digraph)
@@ -25,7 +25,7 @@ export default class LL extends React.PureComponent {
       });
   }
   state = {
-    str: `i+i*i#`
+    str: ``
   };
   handleClick = e => {
     this.setState({ str: document.querySelector('#instr').value || 'i#' });
@@ -35,9 +35,12 @@ export default class LL extends React.PureComponent {
     let SymbolTable = ActionAndGotoTable.map((item, index) => {
       return { index, ...item };
     });
-    let analysTable = analys(str).map((item, index) => {
-      return { index: index + 1, ...item };
-    });
+    let analysTable =
+      str == ''
+        ? []
+        : analys(str).map((item, index) => {
+            return { index: index + 1, ...item };
+          });
     const columns = [
       {
         title: '步骤',
@@ -65,58 +68,19 @@ export default class LL extends React.PureComponent {
         key: 'action'
       }
     ];
-    const column = [
+    let column = tableHeaders.map(header => {
+      return { title: header, dataIndex: header, key: header };
+    });
+
+    column = [
       {
         title: '',
         dataIndex: 'index',
         key: 'index'
       },
-      {
-        title: 'i',
-        dataIndex: 'i',
-        key: 'i'
-      },
-      {
-        title: '+',
-        dataIndex: '+',
-        key: '+'
-      },
-      {
-        title: '*',
-        dataIndex: '*',
-        key: '*'
-      },
-      {
-        title: '(',
-        dataIndex: '(',
-        key: '('
-      },
-      {
-        title: ')',
-        dataIndex: ')',
-        key: ')'
-      },
-      {
-        title: '#',
-        dataIndex: '#',
-        key: '#'
-      },
-      {
-        title: 'E',
-        dataIndex: 'E',
-        key: 'E'
-      },
-      {
-        title: 'F',
-        dataIndex: 'F',
-        key: 'F'
-      },
-      {
-        title: 'T',
-        dataIndex: 'T',
-        key: 'T'
-      }
+      ...column
     ];
+
     return [
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'flex-satrt' }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', width: '16%', margin: '0 2%' }}>

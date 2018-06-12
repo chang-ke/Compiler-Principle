@@ -1,7 +1,7 @@
 ﻿  stdafx.cpp
   LL.cpp
   Lexical.cpp
-e:\node\compilers-principles\dll\compilersprinciplesdll\lexical.cpp(262): warning C4267: “-=”: 从“size_t”转换到“int”，可能丢失数据
+e:\node\compilers-principles\dll\compilersprinciplesdll\lexical.cpp(270): warning C4267: “-=”: 从“size_t”转换到“int”，可能丢失数据
   CompilersPrinciplesDll.cpp
   正在生成代码...
   dllmain.cpp
