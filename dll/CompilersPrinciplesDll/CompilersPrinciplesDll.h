@@ -13,8 +13,8 @@
 // 此类是从 CompilersPrinciplesDll.dll 导出的
 class COMPILERSPRINCIPLESDLL_API CCompilersPrinciplesDll {
 public:
-	CCompilersPrinciplesDll(void);
-	// TODO:  在此添加您的方法。
+    CCompilersPrinciplesDll(void);
+    // TODO:  在此添加您的方法。
 };
 
 extern COMPILERSPRINCIPLESDLL_API int nCompilersPrinciplesDll;
