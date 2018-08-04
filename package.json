@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "scripts": {
     "start": "node index.js",
+    "server": "cd http && npm start",
+    "dev": "cd view && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

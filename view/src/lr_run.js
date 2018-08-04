@@ -1,4 +1,4 @@
-let Prods = ['S->E', 'E->E+T', 'E->T', 'T->T*F', 'T->F', 'F->(E)', 'F->i'];//['S->E','E->BB','B->aB','B->b']
+let Prods = ['S->E', 'E->E+T', 'E->T', 'T->T*F', 'T->F', 'F->(E)', 'F->i']; //['S->E','E->BB','B->aB','B->b']
 let EXTEND_PREFIX = 'S';
 let Items = getItem();
 let tableHeaders = getHeader();
@@ -198,7 +198,7 @@ function contains(C, J) {
   return flag;
 }
 
-function Go(I, X) {
+function go(I, X) {
   let J = [];
   let reg;
   if (X === '(' || X === ')' || X === '+' || X === '*') {
@@ -228,7 +228,7 @@ function Go(I, X) {
   return getClosure(J);
 }
 // console.log(
-//   Go(
+//   go(
 //     [
 //       { prod: 'B->a.B', search: 'a' },
 //       { prod: 'B->a.B', search: 'b' },
@@ -249,7 +249,7 @@ function getC(dotGraph) {
     size = C.length;
     for (let closure of C) {
       for (let X of tableHeaders) {
-        let J = Go(closure, X);
+        let J = go(closure, X);
         if (J.length) {
           dotGraph.push({
             source: getClosureIndex(C, closure),
@@ -277,7 +277,7 @@ function buildTable() {
       if (index + 1 < prod.length) {
         let a = prod[index + 1];
         if (isEnd(a)) {
-          let Ij = Go(C[k], a);
+          let Ij = go(C[k], a);
           let j = getClosureIndex(C, Ij);
           ActionAndGotoTable[k][a] = `s${j}`;
         }
@@ -296,7 +296,7 @@ function buildTable() {
 
       // 4
       if (!isEnd(A)) {
-        let Ij = Go(C[k], A);
+        let Ij = go(C[k], A);
         let j = getClosureIndex(C, Ij);
         if (j > -1) {
           ActionAndGotoTable[k][A] = j;

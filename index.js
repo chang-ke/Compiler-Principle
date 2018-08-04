@@ -1,20 +1,21 @@
-const fs = require('fs');
-const ffi = require('ffi');
-const Dll = ffi.Library('./dll/x64/Debug/CompilersPrinciplesDll.dll', {
-  parse: ['string', ['string']],
-  analys: ['string', ['string']]
+const {fork, exec} = require('child_process');
+
+let server = fork(__dirname + '/http/bin/www', [], {cwd: __dirname + '/http'});
+let dev = exec('cd view && npm start', function(err) {
+  console.log(err);
 });
 
-let codeStr = fs
-  .readFileSync('./main.cpp', 'utf-8')
-  .split('\r')
-  .join('');
-  let s = Dll.parse(codeStr);
-let result = Dll.analys('i+i*i#');
-let data = JSON.parse(result)
-//console.log(data)
-//console.log(s);
-// let arr = JSON.parse(s);
-// arr.forEach((item, index) => {
-//     console.log(`${index}: `, item);
-// });
+server.on('exit', function() {
+  //这里需要传入子进程工作目录，否则是以当前目录为工作目录的
+  server = fork(__dirname + '/http/bin/www', [], {cwd: __dirname + '/http'});
+});
+dev.on('exit', function() {
+  dev = exec('cd view && npm start', function(err) {
+    console.log(err);
+  });
+});
+// 主进程退出，杀死其他两个进程
+process.on('exit', function() {
+  server.kill();
+  dev.kill();
+});

@@ -27,6 +27,7 @@ router.post("/ll", async (ctx, next) => {
 router.get("/", async (ctx, next) => {
   ctx.type = "text/html";
   ctx.body = fs.readFileSync("./public/index.html");
+  
 });
 
 module.exports = router;
